@@ -55,7 +55,7 @@ This project is a Digital Twin Prototype for simulating supply chain operations.
 ## Project Structure
 ```
 DigitalTwinPrototype/
-├───data/
+├───datasets/
 │   ├───Digital_Shipyard_50k_With_Attacks.csv # Not included yet. Contact author for details.
 │   └───Synthetic_Supply_Chain_Dataset.csv # Not included yet. Contact author for details.
 ├───src/
@@ -89,17 +89,14 @@ The prototype uses the following synthetic datasets:
 
 ## Development Status
 
-* [Describe the current state of the project. For example:]
-    * "Basic simulation loop and data visualization are implemented."
-    * "LLM agent logic for Work Order Coordinator is partially implemented."
-    * "Further development is ongoing."
+* "Basic simulation loop and data visualization are implemented."
+* "LLM agent logic for Work Order Coordinator is partially implemented."
+* "Further development is ongoing."
 
 ## Contributing
 
-* [If you want others to contribute, add guidelines here. For example:]
-    * "Pull requests are welcome. Please follow the project's coding conventions."
+* Pull requests are welcome. Please follow the project's coding conventions.
 
 ## License
 
-* [Specify the license under which your project is released. For example:]
-    * "This project is licensed under the MIT License."
+* This project is licensed under the MIT License.
