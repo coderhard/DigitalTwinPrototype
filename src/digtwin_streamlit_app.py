@@ -4,13 +4,11 @@ from utils.data_loader import load_dataset
 import sys
 import os 
 # Add the parent directory to sys.path
-#current_dir = os.path.dirname(os.path.abspath(__file__))
-#current_dir = os.path.dirname(os.path.abspath(file)) 
-#parent_dir = os.path.dirname(current_dir)
+current_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.dirname(current_dir)
+sys.path.append(parent_dir)
 
-#sys.path.append(parent_dir)
-
-#print("sys.path:", sys.path)
+print("sys.path:", sys.path)
 
 from src.simulation.simulation_engine import SimulationEngine
 
@@ -21,8 +19,8 @@ def main():
     st.title("Digital Twin Prototype: Supply Chain Simulation")
 
     # Load Datasets
-    shipyard_data = load_dataset("data/Digital_Shipyard_50k_With_Attacks.csv")
-    supply_chain_data = load_dataset("data/Synthetic_Supply_Chain_Dataset.csv")
+    shipyard_data = load_dataset("Digital_Shipyard_50k_With_Attacks.csv")
+    supply_chain_data = load_dataset("Supply_Chain_50k_With_Attacks.csv")
 
     if shipyard_data is None or supply_chain_data is None:
         st.error("Failed to load datasets. Please check the data files.")

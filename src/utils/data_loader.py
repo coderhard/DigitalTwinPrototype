@@ -1,8 +1,9 @@
+from fileinput import filename
 import pandas as pd
 import logging
 import os  # Import the os module
 
-def load_dataset(filepath: str) -> pd.DataFrame:
+def load_dataset(filename: str) -> pd.DataFrame:
     """
     Loads a CSV dataset into a pandas DataFrame.
 
@@ -12,6 +13,13 @@ def load_dataset(filepath: str) -> pd.DataFrame:
     Returns:
         pd.DataFrame: The loaded DataFrame, or None if an error occurs.
     """
+    
+    # Construct the relative path to the datasets directory
+    #base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    datasets_dir = os.path.join(base_dir, 'datasets')
+    filepath = os.path.join(datasets_dir, filename)
+
     try:
         logging.info(f"Attempting to load dataset from: {filepath}")
         logging.info(f"Current working directory: {os.getcwd()}")  # Log the current working directory
@@ -30,17 +38,17 @@ def load_dataset(filepath: str) -> pd.DataFrame:
         return None
 
 if __name__ == "__main__":
-    # Configure logging (you might want to do this at the app level)
+    # Configure logging (We will change to app level logging in the future)
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-    shipyard_data = load_dataset("data/Digital_Shipyard_50k_With_Attacks.csv")
+    shipyard_data = load_dataset("Digital_Shipyard_50k_With_Attacks.csv")
     if shipyard_data is not None:
         print("Shipyard data loaded successfully.")
-        # You can perform further operations on the DataFrame here
+        # TODO: perform further operations on the DataFrame here
     else:
         print("Shipyard data loading failed.")
 
-    supply_chain_data = load_dataset("data/Synthetic_Supply_Chain_Dataset.csv")
+    supply_chain_data = load_dataset("Supply_Chain_50k_With_Attacks.csv")
     if supply_chain_data is not None:
         print("Supply chain data loaded successfully.")
     else:
